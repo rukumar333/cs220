@@ -1,0 +1,19 @@
+CS-220 Fall 2015 Lab 01 Report Due Friday Feb. 05
+
+Rushil Kumar
+
+1. Name two advantages of a command line interface:   
+   Using the command line gives insight into what is going on behind the scenes and how everything is compiled and ran as opposed to an IDE which handles everything for you.
+   All computers have some form of command line so work on the command line can be done on almost all systems.
+
+2. What does the "helloWorld" program you wrote do?
+   The program prints out a string with a new line character at the end and then exits.
+
+3. What changed between the time you ran "make test" the first time, and "make test" the second time?  Why?
+   The first time, make test executes the rule for "helloWorld" and then executes the executable. The second time, there were no changes in the files used for the helloWorld rule so that rule is not executed and just the "test" rule is executed.  
+
+4. What was the value of "argc" in gdb after the gdb command "run arg1 arg2"?  Why was argc this value?
+   The value was 3. This is because the first argument is the path to the file being ran by gcc. The next two arguments were arg1 and arg2.
+
+5. What was the value of "argv[3]" in gdb after "run arg1 arg2"? Why was "argv[3]" this value?
+   The value was 0x0 or empty. This is because there was no fourth argument provided when the helloWorld program was ran.   

@@ -1,0 +1,5 @@
+1) Line 610: '.R' needed to be changed to ".R"
+2) Line 425: ((*tokenPtr)=NULL) should be ((*tokenPtr)==NULL)
+3) Line 537: left%right should be left/right
+4) Changed debug to true
+5) Line 515: Uncomment out line.

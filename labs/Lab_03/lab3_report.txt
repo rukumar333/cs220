@@ -1,0 +1,51 @@
+Name: Rushil Kumar
+
+CS-220 Spring 2016 Lab 03 Report
+
+1. Cut and paste your final "root" function here...
+double root(double n,double tol) {
+
+	int iter=0;
+	double root=n/2;
+	double prev_root = root;
+	double error=howClose(n,root);
+	char bool = 1;
+	while(error > tol && bool) {		
+		iter++;		
+		/* Calculate a new value for root here */
+		root = (root + (n / root)) / 2;
+		if(root == prev_root){
+		    printf("  New guess is the same as old guess:\n  After %d iterations, root=%g error=%g\n",iter,root,error);
+		    bool = 0;
+		}else{
+		    prev_root = root;
+		    error=howClose(n,root);
+		    printf("  After %d iterations, root=%g error=%g\n",iter,root,error);  
+		}
+	}
+	return root;	
+}
+
+2. After you added the check to make sure root is not the same as prev_root, you still see messages that
+   print out "error=0.000000", and the program executes another iteration.  How can this be true?
+   This is true because the error was a float value and was not exactly zero. There are more digits at the end and the error is still greater than the tolerance.
+   
+3. By providing tolerance as an argument to your root function, you allow the user to provide a larger
+   or smaller tolerance.  Under what conditions might this feature be important to a user of your root function?
+   This can be useful in the example given in the lab. If a water balloon has to be fired into a barrel with a radius of 1 meter, then if the distance is given from the cannon to the center of the barrel, the tolerance can be 1 meter for the balloon to land in the barrel. If the user requires a certain tolerance, the user can request it when using the function.
+   
+4. Some students have suggested that the tolerance should be specified as a fraction of the original number
+   instead of as an absolute value.  For instance, if the tolerance were 0.001, then the root program would
+   iterate as long as error > 0.001 * n.  Which do you like better... tolerance as an absolute value, or
+   tolerance as a fraction of the original number?  Why?
+
+   I think tolerance as an absolute value is better suited because then the user can set the exact tolerance desired. If the number being inputted into the function is very large, then the absolute value of the tolerance might be very large and this does not seem like a good idea as it will lead to large amounts of error.
+   
+5. The distance from New York City to Albany, NY is about 150 miles, and the route is approximately North/South.
+   The distance from Albany, NY to Syracuse NY is about 140 miles, and the route is approximately East/West.
+   Using your square root program, what is the approximate distance from New York City to Syracuse, assuming
+   there is a road that follows the hypotenuse of the triangle.  (Google Maps says that if you follow the roads,
+   this will be 247 miles, but that's because the roads aren't straight lines.)  How many iterations did you
+   need to acheive this result?
+
+   I needed 11 iterations to receive this result and got 205.183.

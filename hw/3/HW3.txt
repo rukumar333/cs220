@@ -1,0 +1,50 @@
+CS220 Spring 2016 Homework 3 Due Feb. 19, 2016
+
+Name: Rushil Kumar
+
+
+
+1. Give your answers in both abstract decimal and concrete hexadecimal format.
+	a. What is the largest number less than infinity that can be represented in a 32 bit IEEE floating point number?
+   3.40282 * 10^38
+   0x7F7FFFFF
+   
+	b. What is the smallest positive number greater than +0 that can be represented in a 32 bit IEEE floating point number? 
+   2^-149
+   0x00000001
+   
+2. Given the following code:
+
+	constant float onethird=1.0/3.0;
+	float sum=0.0;
+	int i=0;
+	for(i=0; i<3000; i++) sum=sum+onethird;
+	if (sum == 1000.0) printf (“Just as I expected, 3000 * 1/3 is 1000\n”);
+	else printf(“That did not work!\n”);
+	
+   What will get printed?  Why? 
+   "That did not work!"
+   This is because the float onethird does not exactly equal (1/3) but is pretty close to it. However, once the number is added to 0 over and over again, the error gets slightly bigger. Therefore, after 3000 additions, the sum is not exactly 1000.0.
+	
+3. Given the following code:
+
+	constant float x=1e20;
+	constant float pi=3.14;
+	float y = (x + (-x))+pi;
+	float z = x + ((-x) + pi);
+	if (y==z) printf("This is an example of the associative property.\n");
+	else printf("This is a counter-example.. the associative property does not hold!\n");
+	
+   Which message will get printed?  Why?
+   "This is a counter-example.. the associative property does not hold!"
+   This message will be printed because y will have a value of pi whereas z will be 0. This is because floating point numbers are precise to around the 7th decimal digit. When the value of z is set, the first operation that happens is (-x) + pi. The absolute value of -x is so much larger than that of pi so when the arithmetic operation is done using precision to the 7th decimal place, there is almost no change and the result is basically -x. Therefore, in the next step when the result is added to the variable "x", what is essentially happening is x + (-x) which equals to zero.
+   
+4. If you are on a little-endian machine that uses 32 bit integers, the professor defines a "palindromic" number as a number
+   for which x==htonl(x), and the professor argues that 16,843,009 is a "palindromic" number.  Is he correct?  Why?
+   The hexadecimal representation for 16,843,009 is 0x1010101. When the bits of this hexadecimal are read backwards instead, the value is still 0x1010101 and therefore it is technically a palindromic number. The bits are palindromic but in base 10, the number is not.   
+
+5. The standard library function "float powf(float a,float b)" returns the value of "a" to the power of "b".  
+   For instance, powf(2.0,3.0) return 2.0 x 2.0 x 2.0 = 8.0.  Find an integer value for "exp" for which the 
+   FRAC bits of the expression "powf(2.0,exp)" is non-zero. (Warning: the representation of INFINITY in floating
+   point has zero FRAC bits.)
+   -128 is a possible value.
