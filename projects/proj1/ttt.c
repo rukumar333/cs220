@@ -107,11 +107,12 @@ int main(int argc,char **argv) {
 	else state=theirTurn(state,them);
 
 	printf("%d\n",state); // Write state after each move to standard out
-	short int tempState = checkWin(state);
-	if(tempState >= STATE_TIE){
-	    fprintState(state);
-	    state=tempState;   
-	}
+	state=checkWin(state);
+	/* short int tempState = checkWin(state); */
+	/* if(tempState >= STATE_TIE){ */
+	/*     fprintState(state); */
+	/*     state=tempState;    */
+	/* } */
 
 	if (turn==1) turn=2; // X just went... O next
 	else turn=1; // O just went... X next
