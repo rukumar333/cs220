@@ -107,7 +107,11 @@ int main(int argc,char **argv) {
 	else state=theirTurn(state,them);
 
 	printf("%d\n",state); // Write state after each move to standard out
-	state=checkWin(state);
+	short int tempState = checkWin(state);
+	if(tempState >= STATE_TIE){
+	    fprintState(state);
+	    state=tempState;   
+	}
 
 	if (turn==1) turn=2; // X just went... O next
 	else turn=1; // O just went... X next
@@ -143,13 +147,29 @@ short int myTurn(short int state, char me) {
     }
     myTurnCount ++;
     //First turn
-    printf("First turn\n");
+    //printf("First turn\n");
     if(myTurnCount == 1){
 	if(me == 1){
 	    state = addState(state, 4, me);
 	    return state;
 	}
 	if(me == 2){
+	    if(zero == other && eight == 0){
+		state = addState(state, 8, me);
+		return state;
+	    }
+	    if(two == other && six == 0){
+		state = addState(state, 6, me);
+		return state;
+	    }
+	    if(six == other && two == 0){
+		state = addState(state, 2, me);
+		return state;
+	    }
+	    if(eight == other && zero == 0){
+		state = addState(state, 0, me);
+		return state;
+	    }
 	    if(getState(state, 4) == 0){
 		state = addState(state, 4, me);
 		return state;
@@ -160,7 +180,7 @@ short int myTurn(short int state, char me) {
 	}
     }
     //Try to win
-    printf("Try to win\n");
+    //printf("Try to win\n");
     short int nState = blockOrWin(state, me, me);
     if(nState != -1){
 	state = nState;
@@ -168,7 +188,7 @@ short int myTurn(short int state, char me) {
     }
     
     //Try to block
-    printf("Try to block\n");
+    //printf("Try to block\n");
     nState = blockOrWin(state, me, other);
     if(nState != -1){
 	state = nState;
@@ -176,7 +196,7 @@ short int myTurn(short int state, char me) {
     }
      
     //Create Fork
-    printf("Try to fork\n");
+    //printf("Try to fork\n");
     nState = forkBlockOrWin(state, me, me);
     if(nState != -1){
 	state = nState;
@@ -184,7 +204,7 @@ short int myTurn(short int state, char me) {
     }
 
     //Block Fork
-    printf("Block fork\n");
+    //printf("Block fork\n");
     nState = forkBlockOrWin(state, me, other);
     if(nState != -1){
 	state = nState;
@@ -192,26 +212,26 @@ short int myTurn(short int state, char me) {
     }
     
     //Opposite corner
-    printf("Opposite corner\n");
-    if(zero == other){
+    //printf("Opposite corner\n");
+    if(zero == other && eight == 0){
 	state = addState(state, 8, me);
 	return state;
     }
-    if(two == other){
+    if(two == other && six == 0){
 	state = addState(state, 6, me);
 	return state;
     }
-    if(six == other){
+    if(six == other && two == 0){
 	state = addState(state, 2, me);
 	return state;
     }
-    if(eight == other){
+    if(eight == other && zero == 0){
 	state = addState(state, 0, me);
 	return state;
     }
 
     //Choose corner
-    printf("Choose corner\n");
+    //printf("Choose corner\n");
     if(zero == 0){
 	state = addState(state, 0, me);
 	return state;
@@ -230,7 +250,7 @@ short int myTurn(short int state, char me) {
     }
 
     //Choose last
-    printf("Last option\n");
+    //printf("Last option\n");
     if(one == 0){
 	state = addState(state, 1, me);
 	return state;
@@ -431,7 +451,7 @@ short int forkBlockOrWin(short int state, char me, char check){
 
 short int blockOrWin(short int state, char me, char check){    
     if(zero == check){
-	printf("Zero check\n");
+	//printf("Zero check\n");
 	if(one == check && two == 0){
 	    state = addState(state, 2, me);
 	    return state;
@@ -458,7 +478,7 @@ short int blockOrWin(short int state, char me, char check){
 	}
     }
     if(one == check){
-	printf("One check\n");
+	//printf("One check\n");
 	if(two == check && zero == 0){
 	    state = addState(state, 0, me);
 	    return state;
@@ -473,30 +493,30 @@ short int blockOrWin(short int state, char me, char check){
 	}
     }
     if(two == check){
-	printf("Two check\n");
+	//printf("Two check\n");
 	if(five == check && eight == 0){
-	    printf("Five\n");
+	    //printf("Five\n");
 	    state = addState(state, 8, me);
 	    return state;	    	    
 	}
 	if(eight == check && five == 0){
-	    printf("Eight\n");
+	    //printf("Eight\n");
 	    state = addState(state, 5, me);
 	    return state;	    	    
 	}
 	if(four == check && six == 0){
-	    printf("Four\n");
+	    //printf("Four\n");
 	    state = addState(state, 6, me);
 	    return state;	    	    
 	}
 	if(six == check && four == 0){
-	    printf("Six\n");
+	    //printf("Six\n");
 	    state = addState(state, 4, me);
 	    return state;	    	    
 	}
     }
     if(three == check){
-	printf("Three check\n");
+	//printf("Three check\n");
 	if(four == check && five == 0){
 	    state = addState(state, 5, me);
 	    return state;	    
@@ -511,7 +531,7 @@ short int blockOrWin(short int state, char me, char check){
 	}
     }
     if(four == check){
-	printf("Four check\n");
+	//printf("Four check\n");
 	if(five == check && three == 0){
 	    state = addState(state, 3, me);
 	    return state;
@@ -530,14 +550,14 @@ short int blockOrWin(short int state, char me, char check){
 	}	
     }
     if(five == check){
-	printf("Five check\n");
+	//printf("Five check\n");
 	if(eight == check && two == 0){
 	    state = addState(state, 2, me);
 	    return state;	    
 	}
     }
     if(six == check){
-	printf("Six check\n");
+	//printf("Six check\n");
 	if(seven == check && eight == 0){
 	    state = addState(state, 8, me);
 	    return state;	    
@@ -548,7 +568,7 @@ short int blockOrWin(short int state, char me, char check){
 	}
     }
     if(seven == check){
-	printf("Seven check\n");
+	//printf("Seven check\n");
 	if(eight == check && six == 0){
 	    state = addState(state, 6, me);
 	    return state;	    	    
