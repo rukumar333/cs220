@@ -46,26 +46,34 @@ rps loserRPS(rps val){
 
 //Each of these takes in the input of the player, not OPPONENT
 
+char increment = 0;
+
 /* rps firstGuess(rps val, winner res){ */
 rps firstGuess(rps val){
-    prev = 0;
-    ++ fgCount;
+    if(increment){
+	++ fgCount;
+	prev = 0;
+    }
     /* if(res == Player1 || Player2)  */return loserRPS(val);
     return Paper;
 }
 
 /* rps secondGuess(rps val, winner res){ */
 rps secondGuess(rps val){
-    prev = 1;
-    ++ sgCount;
+    if(increment){
+	++ sgCount;
+	prev = 1;
+    }
     /* if(res == Player1 || Player2)  */return winnerRPS(val);
     return Paper;
 }
 
 /* rps thirdGuess(rps val, winner res){ */
 rps thirdGuess(rps val){
-    prev = 2;
-    ++ tgCount;
+    if(increment){
+	++ tgCount;
+	prev = 2;
+    }
     /* if(res == Player1 || Player2)  */return val;
     return Paper;
 }
@@ -86,28 +94,104 @@ char getOppModeG(){
     }
 }
 
+char getMin(int first, int second, int third){
+    if(first < second){
+	if(first < third){
+	    return 0;
+	}else{
+	    return 2;
+	}
+    }else{
+	if(second < third){
+	    return 1;
+	}else{
+	    return 2;
+	}
+    }    
+}
+
+char getFMax(float first, float second, float third){
+    if(first > second){
+	if(first > third){
+	    return 0;
+	}else{
+	    return 2;
+	}
+    }else{
+	if(second > third){
+	    return 1;
+	}else{
+	    return 2;
+	}
+    }    
+}
+
+char floatEqual(float one, float two){
+    return (one >= (two - 0.00001) && one <= (two + 0.00001));
+}
+
 rps selfMove(int round, rps * myhist, rps * opphist){    
     selfOrOther = 0;
     ++ selfCount;
-    float fgPerc = (float)fgWinCount / (float)fgCount;
-    float sgPerc = (float)sgWinCount / (float)sgCount;
-    float tgPerc = (float)tgWinCount / (float)tgCount;
+    float fgPerc, sgPerc, tgPerc;
+    if(fgCount == 0) fgPerc = 0;
+    else fgPerc = (float)fgWinCount / (float)fgCount;
+    if(sgCount == 0) sgPerc = 0;
+    else sgPerc = (float)sgWinCount / (float)sgCount;
+    if(tgCount == 0) tgPerc = 0;
+    else tgPerc = (float)tgWinCount / (float)tgCount;
     int fgLoses = fgCount - fgWinCount;
     int sgLoses = sgCount - sgWinCount;
     int tgLoses = tgCount - tgWinCount;
+    /* printf("Self\n"); */
+    /* printf("fgPerc: %.5f\n", fgPerc); */
+    /* printf("sgPerc: %.5f\n", sgPerc); */
+    /* printf("tgPerc: %.5f\n", tgPerc); */
+    /* printf("fgLoses: %d\n", fgLoses); */
+    /* printf("sgLoses: %d\n", sgLoses); */
+    /* printf("tgLoses: %d\n", tgLoses); */
+    char move = -1;
+    increment = 1;
+    if(floatEqual(fgPerc, sgPerc) && floatEqual(fgPerc, tgPerc)){
+	move = getMin(fgLoses, sgLoses, tgLoses);
+	switch(move){
+	case 0: return firstGuess(*(myhist + round - 1));
+	case 1: return secondGuess(*(myhist + round - 1));
+	case 2: return thirdGuess(*(myhist + round - 1));
+	}
+    }    
+    if(fgPerc > sgPerc && floatEqual(sgPerc, tgPerc) && fgPerc >= 0.5){
+	return firstGuess(*(myhist + round - 1));
+    }
+    if(sgPerc > fgPerc && floatEqual(fgPerc, tgPerc) && sgPerc >= 0.5){
+	return secondGuess(*(myhist + round - 1));
+    }
+    if(tgPerc > sgPerc && floatEqual(sgPerc, fgPerc) && tgPerc >= 0.5){
+	return thirdGuess(*(myhist + round - 1));
+    }
+    move = getFMax(fgPerc, sgPerc, tgPerc);
+    switch(move){
+    case 0: if(fgPerc >= 0.25) return firstGuess(*(myhist + round - 1));
+    case 1: if(sgPerc >= 0.25) return secondGuess(*(myhist + round - 1));
+    case 2: if(tgPerc >= 0.25) return thirdGuess(*(myhist + round - 1));
+    }
     //Random return
     char i = rand()%3;
-    switch(i) {
-    case 0: return Rock;
-    case 1: return Scissors;
+    switch(i){
+    case 0: return firstGuess(*(myhist + round - 1));
+    case 1: return secondGuess(*(myhist + round - 1));
+    case 2: return thirdGuess(*(myhist + round - 1));
     }
-    return Paper;
 }
 
 rps otherMove(int round, rps * myhist, rps * opphist){
     selfOrOther = 1;
     ++ otherCount;
     char nextMove = getOppModeG();
+    /* printf("Other\n"); */
+    /* printf("oppFgCount: %d\n", oppFgCount); */
+    /* printf("oppSgCount: %d\n", oppSgCount); */
+    /* printf("oppTgCount: %d\n", oppTgCount); */
     switch(nextMove){
     case 0: return winnerRPS(firstGuess(*(opphist + round - 1)));
     case 1: return winnerRPS(secondGuess(*(opphist + round - 1)));
@@ -118,6 +202,7 @@ rps otherMove(int round, rps * myhist, rps * opphist){
 rps player_rkumar6(int round,rps *myhist,rps *opphist) {
     //Randomly generate value if round is 0    
     /* printf("Round: %d\n", round); */
+    increment = 0;
     if(round == 0 || round == 1){
 	time_t t;
 
@@ -170,9 +255,12 @@ rps player_rkumar6(int round,rps *myhist,rps *opphist) {
 	float fSelfCount = (float)selfCount;
 	float fOtherWins = (float)otherWins;
 	float fOtherCount = (float)otherCount;
-	float otherPerc = fOtherWins / fOtherCount;
-	float selfPerc = fSelfWins / fSelfCount;
-	if(otherPerc >= (selfPerc - 0.00001) && otherPerc <= (selfPerc + 0.00001)){
+	float otherPerc, selfPerc;
+	if(fOtherWins == 0) otherPerc = 0;
+	else otherPerc = fOtherWins / fOtherCount;
+	if(fSelfWins == 0) selfPerc = 0;
+	else selfPerc = fSelfWins / fSelfCount;
+	if(floatEqual(otherPerc, selfPerc)){
 	    if((selfCount - selfWins) > (otherCount - otherWins)){
 		return otherMove(round, myhist, opphist);
 	    }else{

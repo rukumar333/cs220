@@ -3,3 +3,4 @@
 #include "player_scissors.c"
 #include "player_random.c"
 #include "player_rkumar6.c"
+#include "player_input.c"

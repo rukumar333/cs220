@@ -2,7 +2,7 @@ all: round match tourney
 .PHONY: clean test
 
 
-PLAYERS= player_rock.c player_scissors.c player_paper.c player_random.c player_rkumar6.c
+PLAYERS= player_rock.c player_scissors.c player_paper.c player_random.c player_rkumar6.c player_input.c
 	
 
 round: round.c rps.h rps.c $(PLAYERS) players.h 
