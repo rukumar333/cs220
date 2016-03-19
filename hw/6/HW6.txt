@@ -29,7 +29,7 @@ Name: Rushil Kumar
 	if (player==Giroux) team=Arsenal;
 	else if (player==Bony) team=ManCity;
 	else if (player==Rooney) team=ManU;
-   Yes it will compile without error.
+   Yes it will compile without error. However, there will be warnings because the the player and team variable are not initialized.
   
 4. Given the following C code...
 
