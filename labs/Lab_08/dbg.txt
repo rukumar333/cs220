@@ -1,0 +1,15 @@
+# This is my gdb command file
+# 1. Look for a function name to prevent death
+# info functions 
+break killPlayer
+commands
+where
+end
+break getMove
+commands
+set $pos = *(int *)($ebp+8)
+p "Row/Col"
+x /2db $pos
+continue
+end
+run
