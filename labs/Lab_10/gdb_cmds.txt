@@ -1,0 +1,3 @@
+b getString
+set disassemble-next-line on
+run <testhex.txt

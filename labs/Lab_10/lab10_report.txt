@@ -1,0 +1,31 @@
+CS-220 Spring 2016 Lab 10 report		Due: April 15, 2016
+
+Name: Rushil Kumar
+
+1. Cut and paste a copy of your successful test.txt file that creates a texthex.txt 
+   file that invokes the target function:
+C 01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678
+D 0x11111111
+D 0x08048518
+   
+2. Notice that the target function in target.c ends with an "exit(0)" invocation.  The
+   "exit(0)" causes the target function to return directly to the operating system cleanup
+   routine instead of to the function that called "target".  If the target function had 
+   ended with "return false" instead of "exit(0)", would target still run sucessfully?
+   If not, what might happen and why?
+   A return statement would cause a x86 ret instruction at the end of the target function. The ret instruction would pop an address off of the stack and then jump to that address. However, due to the buffer overflow attack, the popped off address will not always be a part of memory that can be accessed or is safe to access. 
+   
+3. If target.c had used fgets instead of gets, would your buffer overflow attack have been succesful?
+   Why or why not?
+   The overflow attack would not have been successful. This is because fgets also takes in an argument specifying how many characters to read from input. This argument is usually the length of the buffer and therefore, fgets will only read in enough from input to fill up the buffer therefore preventing buffer overflow attack.
+   
+4. Did the Makefile make this lab easier or harder to run?  Were you ever surprised
+   at the dependencies that were built or rebuilt as a side effect of running the 
+   make command with a specific target?  Is it worth the time to build a correct
+   Makefile so that dependencies are automatically taken care of?
+   This lab was much easier to run because of the Makefile. When dependencies are built on their own, multiple steps can be simplified to one make command therefore making everything easier. It is definitely worth the time to make a proper and useful Makefile. No I was not surprised at the dependencies that were built. 
+   
+5. Now that you know how to do a buffer overflow attack, could you do a buffer overflow
+   attack on target WITHOUT looking at target.c?  If not, why not?  If so, what tools
+   would you use to figure out what is in the "target" executable file?
+   Yes. For the most part, I did not really look at target.c and only relied on the assembly code produced by running on objdump on the binary executable "target". Then, by analyzing the getString function in the x86 code, I saw that array space was being allocated and then passed into the gets function. I know what gets does and I knew the address of the array in which the input was being stored and I knew the amount of memory allocated to the array due to the "lea    -0x59(%ebp),%eax" instruction. This information was enough to produce a buffer overflow attack.

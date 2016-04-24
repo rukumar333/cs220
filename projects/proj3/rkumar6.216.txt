@@ -1,0 +1,7 @@
+You can Russia from land here in Alaska.
+0 1 1 2 3 5
+4 z 241
+66 2 BearCat
+ZT_UVW
+2 1 5 4 3 6
+107

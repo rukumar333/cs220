@@ -1,0 +1,4 @@
+b secret_phase
+b *0x8048ff4
+set disassemble-next-line on
+run input.txt
