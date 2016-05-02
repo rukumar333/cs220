@@ -1,0 +1,39 @@
+CS-220 Spring 2016 Lab 11 report		Due: April 25, 2016
+
+Name: Rushil Kumar
+
+1. What is the deepest level of stack frame nesting that occured in the factorial program?
+   The function is called 5 times so the stack frame is nested 6 levels deep since the function has 5
+   stack frames and main has another stack frame. The answer is 6.
+   
+2. What information can you derive from a dump of the fact function's stack frame?
+   The dump gives the arguments that are passed to printStackFrame. nparms is located $0x8(%esp),
+   bp is located at $0x4(%esp) and sp is at %esp. Furthermore, the current value of the answer parameter
+   is kept at -0xc(%ebp). The parameter "n" is also printed above the stack frame content. It can also
+   help in tracing function calls.
+
+3. Is it more clear to print out the entire stack, or just the current stack frame?  When would you 
+   want to see the entire stack, and when would you just be interested in the current stack frame?
+   It is more clear to print the current stack frame when you do not want to check the information
+   from the caller function. The current stack gives more clear information on what parameters were
+   passed and gives all the memory in context of the frame's ebp and esp which is useful. It would
+   be useful to look at the entire stack when checking the variable values in the caller function.
+   Looking at the whole stack is useful for tracing function calls.
+
+4. Can you think of any good ways to improve the printout of the stack frame information?  If so, how?
+   (Bonus points will be awarded for the best implementation of improvements... include an example of
+   your results.)
+   For the printStack function, I think it would be better if the addresses were printed with respect
+   to the ebp and esp for each respective frame. I also think for function addresses stored on the stack
+   due to "call" could be specified as addresses of instructions from whichever function as it would be
+   using "objdump -d". So example, if the value was 0x80488eb, it could say next to it "factorial".
+   It might also be useful to print out the values of the different registers like how "info registers"
+   would work on gdb.	 
+
+5. Can you think of any other reason for using the capability for C to access or use information or
+   instructions at the X86 level? If so, describe what you would do in a sentence or two.
+   Maybe the stack can be observed to see if C code can be made more efficient by taking up less space 
+   on the stack. Also, if a stack overflow occurs at some point in C code, you can see what is causing
+   the overflow by looking at the stack and seeing the x86 instructions. Also, since C code gives more
+   freedom on things that can be done, unpredictable errors can occur. The cause for these unpredictable
+   errors can be checked for by analyzing the x86 stack and instructions.
