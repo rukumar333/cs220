@@ -10,6 +10,7 @@ alterGrades:
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
+	subl	$16, %esp
 	movl	8(%ebp), %eax
 	movl	$90, 64(%eax)
 	movl	8(%ebp), %eax
@@ -30,8 +31,11 @@ alterGrades:
 	movl	8(%ebp), %eax
 	addl	$2400, %eax
 	movl	$9, 64(%eax)
+	movl	$7, -4(%ebp)
+	movl	-4(%ebp), %eax
+	imull	$400, %eax, %edx
 	movl	8(%ebp), %eax
-	addl	$2400, %eax
+	addl	%edx, %eax
 	movl	$9, 64(%eax)
 	movl	8(%ebp), %eax
 	addl	$3200, %eax
@@ -42,7 +46,7 @@ alterGrades:
 	movl	8(%ebp), %eax
 	addl	$4000, %eax
 	movl	$93, 64(%eax)
-	popl	%ebp
+	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
 	ret
