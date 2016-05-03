@@ -5,12 +5,11 @@
 alterGrades:
 .LFB0:
 	.cfi_startproc
-	movl 	$0xffffcfd8, %ebp
-	movl	$0xffffce1b, %esp
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
+	movl	$0xffffdab8, (%ebp)
 	.cfi_def_cfa_register 5
 	subl	$16, %esp
 	movl	8(%ebp), %eax
@@ -51,13 +50,12 @@ alterGrades:
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
-	movl 	$0xffffcfb0, %esp
-	movl	$0x55747000, %ebx
-	addl	-0x4, %esp
-	movl 	$0x08048792, (%esp)
+	movl	$0x5570aff4, %ebx
+	addl	$-0x4, %esp
+	movl	$0x08048792, (%esp)
 	ret
 	.cfi_endproc
 .LFE0:
 	.size	alterGrades, .-alterGrades
-	.ident	"GCC: (Ubuntu 4.8.4-2ubuntu1~14.04) 4.8.4"
+	.ident	"GCC: (Debian 4.7.2-5) 4.7.2"
 	.section	.note.GNU-stack,"",@progbits
