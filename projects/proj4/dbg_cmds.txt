@@ -1,4 +1,5 @@
 set disassemble-next-line on
 b getUserLine
+b *0x804878d
 b *0x8048cf9
 run <test.txt

