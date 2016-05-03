@@ -31,7 +31,7 @@ alterGrades:
 	addl	$2400, %eax
 	movl	$9, 64(%eax)
 	movl	8(%ebp), %eax
-	addl	$2800, %eax
+	addl	$2400, %eax
 	movl	$9, 64(%eax)
 	movl	8(%ebp), %eax
 	addl	$3200, %eax
@@ -49,5 +49,5 @@ alterGrades:
 	.cfi_endproc
 .LFE0:
 	.size	alterGrades, .-alterGrades
-	.ident	"GCC: (Debian 4.7.2-5) 4.7.2"
+	.ident	"GCC: (Ubuntu 4.8.4-2ubuntu1~14.04) 4.8.4"
 	.section	.note.GNU-stack,"",@progbits

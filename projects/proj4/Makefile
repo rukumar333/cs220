@@ -10,11 +10,14 @@ grades.objd.txt : grades
 gdb : grades 
 	gdb -x dbg_cmds.txt grades	
 
-makeHex : makeHex.c
-	gcc -g -Wall -m32 -o makeHex makeHex.c
+makeHex: makeHex.cpp
+	g++ -std=c++11 -g makeHex.cpp -o makeHex
+	./makeHex
 
-test.txt : input.txt makeHex
-	./makeHex <input.txt >test.txt	
+hackasm: hack.c
+	gcc hack.c -m32 -S -o hack.s
+	gcc -m32 -c -o hack.o hack.s
+	objdump -d hack.o > hack.objd.txt
 
 clean:  
-	-rm grades grades.objd.txt
+	-rm grades grades.objd.txt makeHex a.out

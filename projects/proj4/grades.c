@@ -94,8 +94,10 @@ void getAvg(int grds[11][100],int n) {
 
 char * getUserLine() {
   char buffer[256];
-
+  
   if (gets(buffer)) {
+      /* printf("SIZE: %d", sizeof(buffer) ); */
+      printf("HEX: %x", buffer[54] & 0xff);
     memcpy(retBuffer,buffer,sizeof(buffer));
     return retBuffer;
   }
