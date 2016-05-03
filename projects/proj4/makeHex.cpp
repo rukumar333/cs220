@@ -17,7 +17,7 @@ void createTest(){
     std::ofstream file;
     file.open("test.txt", std::ios::binary | std::ios::out);
     file << 'B';
-    for(int i = 0; i < 69; i ++){
+    for(int i = 0; i < 77; i ++){
 	file << (char)0x90;
     }
     file << (char)0xc3;
@@ -222,10 +222,14 @@ void createTest(){
     file << (char)0xff;
     file << (char)0x89;
     file << (char)0xe5;
-    file << (char)0x55;
+    // file << (char)0x55;
 
-    
-    file << (char)0x87;
+    file << (char)0x90;
+    file << (char)0xda;
+    file << (char)0xff;
+    file << (char)0xff;
+
+    file << (char)0x86;
     file << (char)0xda;
     file << (char)0xff;
     file << (char)0xff;
@@ -262,3 +266,4 @@ void createHexText(){
     file.close();
     output.close();
 }
+
