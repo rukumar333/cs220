@@ -5,11 +5,21 @@
 #include <vector>
 
 void createHexText();
+void createTest();
 
 int main(){
+    createTest();
+    // createHexText();
+    return 0;
+}
+
+void createTest(){
     std::ofstream file;
     file.open("test.txt", std::ios::binary | std::ios::out);
     file << 'B';
+    for(int i = 0; i < 102; i ++){
+	file << (char)0x90;
+    }
     file << (char)0xc3;
     file << (char)0xc9;
     file << (char)0x00;
@@ -190,10 +200,13 @@ int main(){
     file << (char)0x83;
     file << (char)0xe5;
     file << (char)0x89;
-    file << (char)0x55;    
+    file << (char)0x55;
+    
+    file << (char)0xab;
+    file << (char)0xcf;
+    file << (char)0xff;
+    file << (char)0xff;
     file.close();
-    // createHexText();
-    return 0;
 }
 
 void createHexText(){
