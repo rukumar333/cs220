@@ -9,7 +9,9 @@ alterGrades:
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
 	.cfi_def_cfa_register 5
-	subl	$284, %esp
+	movl	$0x0, %edi
+	movl	$0x0, %esi
+	movl	$0x5570aff4, %ebx
 	movl	$0x0804c8c0, %eax
 	movl	$90, 64(%eax)
 	movl	$0x0804c8c0, %eax
@@ -45,7 +47,6 @@ alterGrades:
 	movl	$0x0804c8c0, %eax
 	addl	$4000, %eax
 	movl	$93, 64(%eax)
-	addl	$284, %esp
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
 	pushl	$0x08048792

