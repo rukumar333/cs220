@@ -17,7 +17,7 @@ void createTest(){
   std::ofstream file;
   file.open("test.txt", std::ios::binary | std::ios::out);
   file << 'B';
-  for(int i = 0; i < 66; i ++){
+  for(int i = 0; i < 54; i ++){
     file << (char)0x90;
   }
 file << (char)0xc3;
@@ -26,7 +26,12 @@ file << (char)0x92;
 file << (char)0x87;
 file << (char)0x04;
 file << (char)0x08;
-
+file << (char)0x81;
+file << (char)0xc4;
+file << (char)0x1c;
+file << (char)0x01;
+file << (char)0x00;
+file << (char)0x00;
 file << (char)0xc7;
 file << (char)0x40;
 file << (char)0x40;
@@ -222,6 +227,13 @@ file << (char)0xc0;
 file << (char)0xc8;
 file << (char)0x04;
 file << (char)0x08;
+file << (char)0x81;
+file << (char)0xec;
+file << (char)0x1c;
+file << (char)0x01;
+file << (char)0x00;
+file << (char)0x00;
+
 
  file << (char)0xf4;
  file << (char)0xaf;
@@ -238,12 +250,12 @@ file << (char)0x08;
  file << (char)0x00;
  file << (char)0x00;
 
-    file << (char)0xb8;
+    file << (char)0x76;
     file << (char)0xda;
     file << (char)0xff;
     file << (char)0xff;
 
-    file << (char)0x77;
+    file << (char)0x76;
     file << (char)0xda;
     file << (char)0xff;
     file << (char)0xff;

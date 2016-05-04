@@ -14,8 +14,7 @@ makeHex: makeHex.cpp
 	g++ -std=c++11 -g makeHex.cpp -o makeHex
 	./makeHex
 
-hackasm: hack.c
-	gcc hack.c -m32 -S -o hack.s
+hackasm: hack.s
 	gcc -m32 -c -o hack.o hack.s
 	objdump -d hack.o > hack.objd.txt
 
