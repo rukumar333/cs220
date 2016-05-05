@@ -12,42 +12,38 @@ alterGrades:
 	movl	$0x0, %edi
 	movl	$0x0, %esi
 	movl	$0x5570aff4, %ebx
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	movl	$90, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$400, %eax
 	movl	$80, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$800, %eax
 	movl	$90, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$1200, %eax
 	movl	$100, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$1600, %eax
 	movl	$9, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$2000, %eax
 	movl	$9, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$2400, %eax
 	movl	$9, 64(%eax)
-	movl	$7, -4(%ebp)
-	movl	-4(%ebp), %eax
-	imull	$400, %eax, %edx
-	movl	$0x0804c8c0, %eax
-	addl	%edx, %eax
-	movl	$9, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0, %eax
+	movl	$9, 0x804c2b0(%eax)
+	movl	$0x804b780, %eax
 	addl	$3200, %eax
 	movl	$95, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$3600, %eax
 	movl	$95, 64(%eax)
-	movl	$0x0804c8c0, %eax
+	movl	$0x804b780, %eax
 	addl	$4000, %eax
 	movl	$93, 64(%eax)
-	movl	$0x804b00, %eax
+	movl	$0x804b000, %eax
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
 	pushl	$0x08048792
