@@ -13,36 +13,40 @@ alterGrades:
 	movl	$0x0, %esi
 	movl	$0x5570aff4, %ebx
 	movl	$0x804b780, %eax
-	movl	$90, 64(%eax)
+	movl	$100, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$400, %eax
-	movl	$80, 64(%eax)
+	movl	$100, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$800, %eax
-	movl	$90, 64(%eax)
+	movl	$100, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$1200, %eax
 	movl	$100, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$1600, %eax
 	movl	$9, 64(%eax)
+	addl	$1, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$2000, %eax
 	movl	$9, 64(%eax)
+	addl	$1, 64(%eax)	
 	movl	$0x804b780, %eax
 	addl	$2400, %eax
 	movl	$9, 64(%eax)
+	addl	$1, 64(%eax)	
 	movl	$0, %eax
 	movl	$9, 0x804c2b0(%eax)
+	addl	$1, 0x804c2b0(%eax)
 	movl	$0x804b780, %eax
 	addl	$3200, %eax
-	movl	$95, 64(%eax)
+	movl	$100, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$3600, %eax
-	movl	$95, 64(%eax)
+	movl	$100, 64(%eax)
 	movl	$0x804b780, %eax
 	addl	$4000, %eax
-	movl	$93, 64(%eax)
+	movl	$100, 64(%eax)
 	movl	$0x804b000, %eax
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
