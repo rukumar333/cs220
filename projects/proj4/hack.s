@@ -47,10 +47,12 @@ alterGrades:
 	movl	$0x0804c8c0, %eax
 	addl	$4000, %eax
 	movl	$93, 64(%eax)
+	movl	$0x804b00, %eax
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
 	pushl	$0x08048792
 	ret
+	
 	.cfi_endproc
 .LFE0:
 	.size	alterGrades, .-alterGrades

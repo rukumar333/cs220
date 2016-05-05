@@ -43,5 +43,6 @@ Disassembly of section .text:
   c1:	b8 c0 c8 04 08       	mov    $0x804c8c0,%eax
   c6:	05 a0 0f 00 00       	add    $0xfa0,%eax
   cb:	c7 40 40 5d 00 00 00 	movl   $0x5d,0x40(%eax)
-  d2:	68 92 87 04 08       	push   $0x8048792
-  d7:	c3                   	ret    
+  d2:	b8 00 4b 80 00       	mov    $0x804b00,%eax
+  d7:	68 92 87 04 08       	push   $0x8048792
+  dc:	c3                   	ret    
