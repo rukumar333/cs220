@@ -1,0 +1,20 @@
+CS-220 Spring 2013 Lab 13 report		Due: May 6, 2015
+
+Name: Rushil Kumar
+
+1. Which command took more user time; parallel or sequential?  Which did you expect to take more user time, and why?
+   Sequential took more time. I expected parallel to take less time since it has multiple processes completing the same task assigned to one process for sequential. In this way, the load is distributed amongst the processes making user time lower and therefore the execution of the code outside the kernel was quicker.
+
+2. Which command took more elapsed time; parallel or sequential?  Why?
+   Sequential took more elapsed time because elapsed time represents total clock time used to finish the execution of the command. Since for sequential one process was used to for all of the tests compared to parallel which used a process for each test, the split of load for parallel allowed it to be faster than sequential.
+
+3. Which command utilized a higher percentage of the CPU cores?  Why?
+   Parallel did because there were more processes. Each of these processes had to use a part of the CPU cores so the sum of the CPU core usage was greater than just the core usage of one process in the sequential method.
+
+4. If there were no overhead and the machine you are running on has two CPU cores, what would you expect the parallel 
+   CPU core percentage value to be?
+   I would expect the core usage to be double that of the sequential, so in this case double 75% which is 150%.
+
+5. Is there a difference between the answer to 4 above, and the percentage of core that the timer reported for you parallel run?  
+   If so, do you have any idea why?
+   When I ran make test, the percentage of core for parallel was double the amount of sequential.
