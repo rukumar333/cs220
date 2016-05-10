@@ -1,0 +1,38 @@
+CS220 Homework 9 Due May 9, 2016
+
+Name: Rushil Kumar
+
+Given the following C program...
+
+	int main(int argc, char **argv) {
+		int pid=0, targ, status;
+		for (targ=0; targ<argc; targ++) {
+			printf("Processing argument: %s\n",argc[targ]);
+			if (pid==0) pid=fork();
+		}
+		while(-1!=wait(&status));
+		return 0;
+	}
+	
+If I compile the program into an executable file called "showArgs", and then
+invoke the program as "./showArgs a b c"...
+
+1. How many child processes will get forked?
+   4 child processes will get forked and there will be one main parent process.
+
+2. How many times will "processing argument b" get printed?
+   3 times.
+
+3. In a single process, how many times will "wait" get executed?
+   5 times.
+
+There is a new subdirectory in the examples section called "xmp_shell".  Look at that code
+(download it and build it if you wish)... Asnwer the following questions based on that
+code...
+
+4. Does the code in shell.c support input redirection, output redirection, and background processing?
+   Yes it supports all of the above.
+
+5. The code in shell.c reaps the return code from background processes in two places... at line 32,
+   and at line 36.  Why do we wait in both places?
+   At line 32, background processes are ended when there is input, end by the pid, and is non-blocking due to the WNOHANG. Line 36 ends all remaining background processes to ensure that they all finish and there are no zombie processes remaining. The main function cannot exit unless all children are terminated since in this case, wait is blocking.
